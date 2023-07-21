@@ -8,7 +8,9 @@ module.exports = {
 	},
 	output: {
 	  path: path.resolve(__dirname, "dist"),
-	  filename: "[name].js", // Use [name] placeholder for dynamic filenames
+	  filename: "[name].js",
+	  clean:true
+	   // Use [name] placeholder for dynamic filenames
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
