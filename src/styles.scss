@@ -9,46 +9,103 @@ $secondary: rgb(239, 239, 240) !default;
 
 // Then add additional custom code here
 @font-face {
-    font-family: 'Garamond';
-    src: url('Fonts/EBGaramond-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Garamond';
-    src: url('Fonts/EBGaramond-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Garamond';
-    src: url('Fonts/EBGaramond-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-  }
-  
-  @font-face {
-    font-family: 'Garamond';
-    src: url('Fonts/EBGaramond-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-  }
-  
-  .hero {
-    font-family: 'Garamond';
-    font-weight: bold;
-    font-size: 6rem;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100dvh;
-    text-align: center;
-    background-image: url(Images/Background.svg);
-    background-size: clamp(20rem,50vw,500px);
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+	font-family: "Garamond";
+	src: url("./Fonts/EBGaramond-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
 
+@font-face {
+	font-family: "Garamond";
+	src: url("./Fonts/EBGaramond-Bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Garamond";
+	src: url("./Fonts/EBGaramond-Italic.ttf") format("truetype");
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Garamond";
+	src: url("./Fonts/EBGaramond-BoldItalic.ttf") format("truetype");
+	font-weight: bold;
+	font-style: italic;
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "Garamond";
+	background-color: $secondary;
+}
+body > * {
+	background-color: $primary;
+	border-radius: 10px;
+	margin: clamp(5px, 1vw, 20px);
+}
+.hero {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	height: 100dvh;
+	text-align: center;
+	background-image: url(Images/Background.svg);
+	background-size: clamp(20rem, 50vw, 500px);
+	background-repeat: no-repeat;
+	background-position: center;
+	h1 {
+		font-weight: bold;
+		font-size: clamp(4rem, 10vw, 8rem);
+		color: black;
+		transition: transform 300ms;
+		&:hover {
+			transform: scale(1.2);
+			cursor: pointer;
+		}
+	}
+}
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: $primary;
+	padding: 10px;
+	ul {
+		$fontSize: clamp(1.2rem, 2.5vw, 2.5rem);
+		width: 100%;
+		display: flex;
+		list-style: none;
+		justify-content: center;
+		column-gap: clamp(20px, 5vw, 200px);
+		align-items: center;
+		color: rgb(196, 133, 39);
+		font-weight: 600;
+		margin: auto 0;
+		li {
+			display: grid;
+			place-content: center;
+			transition: transform 300ms;
+			&:hover {
+				transform: scale(1.2);
+				cursor: pointer;
+			}
+			h2 {
+				font-size: $fontSize;
+				/* Reset the margin to center the heading */
+				margin: 0;
+			}
+			svg {
+				width: calc(1.1 * $fontSize);
+				height: calc(1.1 * $fontSize);
+			}
+		}
+	}
+}
