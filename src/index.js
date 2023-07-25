@@ -18,7 +18,7 @@ navBar.addEventListener("click", (e) => {
 	clearChildren(content);
 	let activeItem = activeLink.firstChild;
 	let appendElement;
-	switch (activeItem.tagName) {
+	switch (activeItem.firstChild.tagName) {
 		case "H2":
 			switch (activeItem.innerText) {
 				case "About us":
@@ -48,5 +48,11 @@ navBar.addEventListener("click", (e) => {
 			appendElement = home();
 			break;
 	}
+	content.appendChild(appendElement);
+});
+window.addEventListener("DOMContentLoaded", () => {
+	clearChildren(content);
+	let appendElement;
+	appendElement = home();
 	content.appendChild(appendElement);
 });
