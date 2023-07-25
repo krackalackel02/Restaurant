@@ -3,12 +3,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 	entry: {
-	  main: "./src/index.js",
-	  styles: "./src/styles.scss",
+		bundle: [
+			"./src/reserve.js",
+			"./src/menu.js",
+			"./src/about.js",
+			"./src/contact.js",
+			"./src/home.js",
+			"./src/index.js",
+			"./src/styles.scss",
+		], // Use a single entry point that includes both JS and SCSS
 	},
 	output: {
-	  path: path.resolve(__dirname, "dist"),
-	  filename: "[name].js", // Use [name] placeholder for dynamic filenames
+		path: path.resolve(__dirname, "dist"),
+		filename: "bundle.js", // Output a single bundle file
+		clean: true,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -21,7 +29,7 @@ module.exports = {
 			{
 				test: /\.(css|scss)$/i,
 				use: ["style-loader", "css-loader", "sass-loader"],
-			  },
+			},
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: "asset/resource",
